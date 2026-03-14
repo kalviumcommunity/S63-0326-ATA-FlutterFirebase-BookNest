@@ -1,0 +1,86 @@
+# BookNest - Smart Library Management App
+
+## Project Overview
+BookNest is a mobile library management system built using Flutter and Firebase. The app replaces traditional manual library registers with a modern, digital system that allows users to seamlessly discover books, check availability, borrow or reserve books, track their borrow history, and write reviews and ratings. It also provides essential tools for librarians to maintain the book catalogue and manage borrowing records efficiently.
+
+## Features
+- **Book Discovery**: Browse books by genre, search books by title or author, and view detailed information for each book.
+- **Borrowing System**: Check book availability in real-time, borrow books, track borrowed items, and process returns.
+- **Author Profiles**: View a comprehensive author listing, individual author profiles, and all books written by an author.
+- **Reviews & Ratings**: Share your thoughts by rating books and writing detailed reviews.
+- **Member Accounts**: Secure sign-up and login, profile management, and personalized borrow history tracking.
+- **Library Dashboard**: A centralized view offering a summary of borrowed books, book availability updates, and catalogue management tools for administrators.
+
+## Technologies Used
+**Frontend:**
+- Flutter
+- Dart
+
+**Backend:**
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Storage
+- Firebase Cloud Functions
+
+**Tools:**
+- GitHub (Version Control/Collaboration)
+- Postman (API Documentation)
+
+## Folder Structure
+```text
+lib/
+ ┣ main.dart        # Application entry point
+ ┣ screens/         # UI screens (e.g., Home, Login, BookDetails)
+ ┣ widgets/         # Reusable UI components
+ ┣ services/        # Firebase integration and business logic
+ ┣ models/          # Data classes (e.g., Book, User)
+ ┗ utils/           # Helper functions, themes, and constants
+
+docs/
+ ┣ flutter_firebase_postman.json
+ ┗ ARCHITECTURE.md
+```
+
+## Firebase Setup Instructions
+1. Go to the [Firebase Console](https://console.firebase.google.com/).
+2. Create a new project named **BookNest**.
+3. Add an Android/iOS app to your project and download the initialization files (`google-services.json` / `GoogleService-Info.plist`).
+4. Place the configuration files in the appropriate mobile platform directories (`android/app/` and `ios/Runner/`).
+5. In the console, enable **Authentication** (Email/Password), **Cloud Firestore**, and **Firebase Storage**.
+6. Set up suitable Security Rules for Firestore and Storage to limit unauthenticated access.
+7. Deploy any required background logic using Firebase Cloud Functions.
+
+## Deployment Instructions
+
+### Running Locally
+1. Clone the repository and navigate to the project root.
+2. Install dependencies by running:
+   ```bash
+   flutter pub get
+   ```
+3. Run the application on a connected device or emulator:
+   ```bash
+   flutter run
+   ```
+
+### Building APK
+To generate a release APK for Android deployment, execute:
+```bash
+flutter build apk
+```
+
+## Contributing Guidelines
+We welcome contributions to BookNest! Follow these steps:
+1. **Fork** the repository.
+2. **Create a feature branch** (`git checkout -b feature/your-feature-name`).
+3. **Commit your changes** with descriptive messages (`git commit -m "Added author filtering feature"`).
+4. **Push to the branch** (`git push origin feature/your-feature-name`).
+5. **Submit a pull request** explaining your changes.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Reflection Section
+- **Why API documentation is important**: Comprehensive API documentation ensures a common understanding of endpoints, expected payloads, and responses. For a decoupled frontend (Flutter) and backend (Firebase), this smooths development and minimizes integration bugs.
+- **How versioning helps maintain consistency**: Using version increments (like v1.0.0) ensures backwards compatibility. This prevents newer updates from breaking older versions of the mobile app still in use by some members.
+- **How architecture documentation improves collaboration**: Having an `ARCHITECTURE.md` file ensures all team members, regardless of when they join, understand the system boundaries, data flow, and directory layouts, thereby aligning efforts and speeding up the onboarding process.
