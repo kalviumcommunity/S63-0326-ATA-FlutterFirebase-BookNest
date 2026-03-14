@@ -84,3 +84,44 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **Why API documentation is important**: Comprehensive API documentation ensures a common understanding of endpoints, expected payloads, and responses. For a decoupled frontend (Flutter) and backend (Firebase), this smooths development and minimizes integration bugs.
 - **How versioning helps maintain consistency**: Using version increments (like v1.0.0) ensures backwards compatibility. This prevents newer updates from breaking older versions of the mobile app still in use by some members.
 - **How architecture documentation improves collaboration**: Having an `ARCHITECTURE.md` file ensures all team members, regardless of when they join, understand the system boundaries, data flow, and directory layouts, thereby aligning efforts and speeding up the onboarding process.
+
+---
+
+## Responsive Layout Implementation 
+**Sprint 2 Task:** Implementing a Responsive Mobile UI 
+
+This task focuses on designing adaptive mobile interfaces in Flutter that automatically adjust to various screen sizes, device types (tablets vs phones), and orientations using `MediaQuery`, `LayoutBuilder`, and flutter’s flexible layout widgets (`Expanded`, `Flexible`, and `AspectRatio`).
+
+### Screenshots
+*(Note: Please replace the placeholder links below with actual emulator screenshots before your final submission)*
+
+- ![Mobile Portrait State](docs/screenshots/mobile_portrait.png)
+- ![Tablet Landscape State](docs/screenshots/tablet_landscape.png)
+
+### Implementation Code Snippet
+Using `MediaQuery` and `LayoutBuilder` to pivot between a single-column and a dual-column layout dynamically:
+```dart
+double screenWidth = MediaQuery.of(context).size.width;
+bool isTablet = screenWidth > 600;
+
+return LayoutBuilder(
+  builder: (context, constraints) {
+    if (isTablet) {
+      // Return Two-column grid layout for tablets 
+      return Row(
+        children: [ Expanded(child: _buildSidebar()), Expanded(child: _buildMainContent(constraints)) ],
+      );
+    } else {
+      // Return Single-column layout for phones
+      return Column(
+        children: [ Expanded(child: _buildMainContent(constraints)), _buildFooterArea() ],
+      );
+    }
+  },
+);
+```
+
+### Reflection
+**Challenges Faced:** Managing widgets within nested strict constraints (e.g. `AspectRatio` inside of Grid items inside `Expanded`) often leads to `RenderBox was not laid out` or clipping overflow exceptions during rapid orientation changes. Addressing this involved appropriately utilizing `Flexible` vs `Expanded` boundaries.
+
+**How responsive design improves User Experience:** Serving the same UI across fundamentally different screen sizes leads to poor user scenarios where things look artificially stretched, or there is heavy wasted negative space on large screens (tablets). By intercepting these dimensional state changes instantly, users gain highly natural, accessible, and intuitive experiences unhindered by their hardware platform constraints.
