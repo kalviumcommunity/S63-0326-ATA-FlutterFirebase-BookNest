@@ -125,3 +125,52 @@ return LayoutBuilder(
 **Challenges Faced:** Managing widgets within nested strict constraints (e.g. `AspectRatio` inside of Grid items inside `Expanded`) often leads to `RenderBox was not laid out` or clipping overflow exceptions during rapid orientation changes. Addressing this involved appropriately utilizing `Flexible` vs `Expanded` boundaries.
 
 **How responsive design improves User Experience:** Serving the same UI across fundamentally different screen sizes leads to poor user scenarios where things look artificially stretched, or there is heavy wasted negative space on large screens (tablets). By intercepting these dimensional state changes instantly, users gain highly natural, accessible, and intuitive experiences unhindered by their hardware platform constraints.
+
+---
+
+## Firebase Integration Implementation
+**Sprint 2 Task:** Integrating Firebase Auth and Firestore Database
+
+This task focuses on integrating Firebase to enable real user authentication alongside a NoSQL cloud database (Firestore) to perform structured cloud CRUD operations directly from the mobile application.
+
+### Setup Steps
+1. Configured the project via Firebase Console.
+2. Installed dependencies dynamically via `flutter pub add firebase_core firebase_auth cloud_firestore`.
+3. Overrode `main()` in `lib/main.dart` with `WidgetsFlutterBinding.ensureInitialized();` and `await Firebase.initializeApp();`.
+
+### Implementation Code Snippets
+**Authentication Logic (`auth_service.dart`):**
+```dart
+Future<User?> signUp(String email, String password) async {
+  try {
+    final credential = await _auth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+    return credential.user;
+  } catch (e) {
+    print(e);
+    return null;
+  }
+}
+```
+
+**Firestore Logic (`firestore_service.dart`):**
+```dart
+Future<void> addUserData(String uid, Map<String, dynamic> data) async {
+  await _db.collection('users').doc(uid).set(data, SetOptions(merge: true));
+}
+```
+
+### Screenshots
+*(Note: Please replace the placeholder links below with actual screenshots prior to submission)*
+- ![Signup / Login Screen](docs/screenshots/app_login_screen.png)
+- ![Firestore Logic View](docs/screenshots/app_firestore_logic.png)
+- ![Firebase Console Entries](docs/screenshots/firebase_console_entries.png)
+
+### Reflection
+**How does Firebase simplify backend management in mobile apps?**
+Firebase completely abstracts away the necessity to spin up dedicated virtual servers, load balancers, and bespoke API routes just to handle simple JSON documents or user sessions. By leveraging out-of-the-box native SDKs and Security Rules, we can directly and securely communicate with the database from our Flutter clients in a real-time, reactive fashion without building complex mid-tier boilerplate.
+
+**What did you learn about connecting Flutter with cloud services?**
+We learned how streaming inherently aligns with Flutter's reactive widget nature. For example, utilizing `FirebaseAuth.instance.authStateChanges()` paired perfectly with a `StreamBuilder` in `main.dart`, instantly rebuilding the root Application structure and implicitly navigating the user to the Dashboard moments after a successful signup block resolves.
