@@ -173,4 +173,130 @@ Future<void> addUserData(String uid, Map<String, dynamic> data) async {
 Firebase completely abstracts away the necessity to spin up dedicated virtual servers, load balancers, and bespoke API routes just to handle simple JSON documents or user sessions. By leveraging out-of-the-box native SDKs and Security Rules, we can directly and securely communicate with the database from our Flutter clients in a real-time, reactive fashion without building complex mid-tier boilerplate.
 
 **What did you learn about connecting Flutter with cloud services?**
-We learned how streaming inherently aligns with Flutter's reactive widget nature. For example, utilizing `FirebaseAuth.instance.authStateChanges()` paired perfectly with a `StreamBuilder` in `main.dart`, instantly rebuilding the root Application structure and implicitly navigating the user to the Dashboard moments after a successful signup block resolves.
+We learned how streaming inherently aligns with Flutter's reactive widget nature. For example, utilizing `FirebaseAuth.instance.authStateChanges()` paired perfectly with a `StreamBuilder` in `main.dart`, instantly rebuilding the root Application structure and implicitly navigating the user to the Dashboard moments after a successful signup block resolves.\
+
+# 🚀 Flutter Environment Setup and Verification
+
+## 📌 Description
+
+This project demonstrates the successful setup of the Flutter development environment, including installation of the Flutter SDK, configuration of Android Studio/VS Code, and running a Flutter application on an emulator.
+
+This setup serves as the foundation for building mobile applications using Flutter and integrating Firebase in future tasks.
+
+---
+
+## 🛠 Steps Followed
+
+### 1. Installed Flutter SDK
+- Downloaded Flutter SDK from official website
+- Extracted to local directory
+- Added Flutter to system PATH
+
+Verified installation using:
+
+---
+
+### 2. Set Up Development Environment
+- Installed Android Studio
+- Installed Flutter and Dart plugins
+- Installed required SDK components:
+  - Android SDK
+  - AVD Manager
+
+---
+
+### 3. Configured Emulator
+- Opened AVD Manager
+- Created virtual device (Pixel series)
+- Installed Android system image
+- Launched emulator
+
+Verified using:
+
+---
+
+## 📱 Running Flutter Application
+
+### 1. Create Flutter Project
+```bash
+flutter create book_nest
+cd book_nest
+```
+
+### 2. Run Application
+```bash
+flutter run
+```
+
+### 3. Verify Output
+Application launched successfully on emulator:
+
+---
+
+## 📸 Screenshots
+
+### Flutter Installation Verification
+```bash
+flutter doctor
+```
+
+![Flutter Doctor Output](docs/screenshots/flutter_doctor.png)
+
+### Running Flutter App
+```bash
+flutter run
+```
+
+![Flutter App Running](docs/screenshots/flutter_app_running.png)
+
+### Emulator Verification
+![Android Emulator Running](docs/screenshots/emulator_running.png)
+
+---
+
+## 📚 Technologies Used
+
+- **Flutter SDK**: Version 3.x
+- **Dart**: Version 3.x
+- **Android Studio**: Version 2023.x
+- **Android Emulator**: Pixel 5 (API 33)
+
+---
+
+## 🎯 Key Learnings
+
+1. **Flutter Installation**: Proper SDK installation and PATH configuration are critical for development
+2. **Environment Setup**: Android Studio plugins and SDK components must be properly configured
+3. **Emulator Management**: AVD Manager allows creating and managing virtual devices for testing
+4. **Project Creation**: `flutter create` command initializes new Flutter projects
+5. **Running Apps**: `flutter run` command compiles and launches applications on connected devices/emulators
+
+---
+
+## 📝 Notes
+
+- Ensure sufficient system resources (RAM, disk space) for emulator operation
+- Keep Flutter SDK and Android Studio updated for latest features and bug fixes
+- Use `flutter doctor` regularly to verify environment health
+- Test on multiple emulator configurations for broader compatibility
+
+---
+
+## 🔗 Resources
+
+- [Flutter Official Website](https://flutter.dev/)
+- [Flutter Installation Guide](https://docs.flutter.dev/get-started/install)
+- [Android Studio Setup](https://docs.flutter.dev/get-started/install/android)
+- [Flutter Emulator Setup](https://docs.flutter.dev/get-started/install/android#run-on-a-simulator-or-emulator)
+
+---
+
+**Project Root**: `/Users/tanviagarwal/S63-0326-ATA-FlutterFirebase-BookNest`
+**Flutter Version**: 3.38.3
+**Dart Version**: 3.10.1
+**Android Studio Version**: 2023.3.1
+**Emulator**: Pixel 5 (API 33)
+
+---
+
+*This setup is complete and ready for Firebase integration in the next sprint.*
