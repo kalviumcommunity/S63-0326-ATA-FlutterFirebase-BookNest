@@ -300,3 +300,34 @@ flutter run
 ---
 
 *This setup is complete and ready for Firebase integration in the next sprint.*
+
+
+---
+
+## 📁 Flutter Project Structure Exploration
+
+This task explores the complete Flutter project structure and explains the purpose of each folder and configuration file.
+
+📄 Detailed documentation:
+👉 See [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)
+
+---
+
+## 📸 Folder Structure Screenshot
+
+(Add screenshot of your project structure here)
+
+---
+
+## 🤔 Reflection
+
+Understanding Flutter project structure is important because:
+
+- It helps organize code efficiently
+- Improves development speed
+- Makes collaboration easier in team projects
+
+A well-structured project allows team members to:
+- Work on different modules independently
+- Avoid confusion
+- Maintain clean and scalable code
