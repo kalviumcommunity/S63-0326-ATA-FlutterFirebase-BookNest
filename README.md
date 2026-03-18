@@ -331,3 +331,69 @@ A well-structured project allows team members to:
 - Work on different modules independently
 - Avoid confusion
 - Maintain clean and scalable code
+
+# 🌳 Widget Tree & Reactive UI Demo
+
+## 📌 Description
+
+This project demonstrates how Flutter’s widget tree works and how its reactive UI model updates the interface automatically when the state changes.
+
+A simple counter app is used to visualize widget hierarchy and state-driven updates.
+
+---
+
+## 🧩 Widget Tree Structure
+MaterialApp
+┗ Scaffold
+┣ AppBar
+┗ Body
+┗ Center
+┗ Column
+┣ Text (Count)
+┗ ElevatedButton
+
+
+---
+
+## ⚙️ Reactive UI Explanation
+
+Flutter uses a reactive model where the UI updates automatically when the state changes.
+
+In this app:
+- Clicking the button updates the `count`
+- `setState()` triggers UI rebuild
+- Only affected widgets are updated
+
+---
+
+## 📸 Screenshots
+
+### Initial State
+(Add screenshot here)
+
+### After Button Click
+(Add screenshot here)
+
+---
+
+## 🤔 Reflection
+
+### How does widget tree help?
+
+- Organizes UI in a hierarchical structure
+- Makes layout easy to understand
+- Helps manage complex interfaces
+
+### Why is reactive model efficient?
+
+- No manual UI updates required
+- Only changed parts are rebuilt
+- Improves performance and development speed
+
+---
+
+## ✅ Features
+
+- Nested widget structure
+- State management using setState
+- Real-time UI updates
